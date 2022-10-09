@@ -1,0 +1,20 @@
+/* External CSS */
+    body {
+        background-color: #eaf6f6;
+    }
+
+    hr {
+        background-color: #eaf6f6;
+        border-style: dotted none none;
+        border-color: grey;
+        border-width: 05px;
+        width: 10%;
+
+      }
+    h1 {
+        color: #66BFBF;
+    }
+
+    h3{
+        color: #66BFBF;
+    }

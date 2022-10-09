@@ -1,0 +1,119 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1 {
+    text-align: center;
+}
+#container {
+    background-color: #003049;
+    width: 90%;
+    /* height: 500px; */
+    margin: 0 auto;
+    border: 5px solid #003049;
+    display: flex;
+    /* By default flex-directon is row */
+    flex-direction: row;
+    /* flex-direction: row-reverse; */
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+    /* By default justify-content is flex-start */
+    /* justify-content: flex-start; */
+    /* justify-content: flex-end; */
+    justify-content: center;
+    /* justify-content: space-between; */
+    /* justify-content: space-around; */
+    /* justify-content: space-evenly; */
+    
+    /* Flex wrap is used for align elemnet left to right or vice versa */
+    /* flex-wrap: wrap; */
+    /* flex-wrap: wrap-reverse; */
+    /* flex-wrap: nowrap; */
+
+    /* Align-items is used for align elemnet top to bottom or vice versa in row  */
+    /* align-items: flex-start; */
+    /* align-items: flex-end; */
+    /* align-items: center; */
+    /* align-items: baseline; */
+
+    /* Align Content (The align-content property modifies the behavior of the flex-wrap property. It is similar to align-items, but instead of aligning flex items, it aligns flex lines.)*/
+    /* align-content: flex-start; */
+    /* align-content: center; */
+    /* align-content: flex-end; */
+    /* align-content: space-around; */
+    /* align-content: space-between; */
+
+}
+
+#container div {
+    width: 200px;
+    height: 200px;
+    /* max-width: 300px; */
+    /* font-size: 4em; */
+    text-align: center;
+    /* Flex Basis defines the initial size of an element before additional space is distributed */
+    flex-basis: 600px;
+    /* Flex Grow controls the amount of available space an element should take up. Accepts a unit-less number value */
+    /* flex-grow: 1; */
+    
+    /* Flex Shrink - If items are larger than the container, they shrink according to flex-shrink */
+    /* flex-shrink: 2; */
+
+    
+}
+
+/* div:nth-of-type(3){
+    align-self: center;
+} */
+
+/* Flex Grow controls the amount of available space an element should take up. Accepts a unit-less number value */
+div:nth-of-type(1) {
+    flex-grow: 1;
+    flex-shrink: 2;
+}
+div:nth-of-type(5) {
+    flex-grow: 2;
+    flex-shrink: 0;
+}
+
+
+/* Flex Shorthand */
+    /* One value, width/height: flex-basis */
+    /* flex: 10em;
+    flex: 30%;
+    flex: min-content; */
+
+    /* Two values: flex-grow | flex-basis */
+    /* flex: 1 30px; */
+
+    /* Two values: flex-grow | flex-shrink */
+    /* flex: 2 2; */
+
+    /* Three values: flex-grow | flex-shrink | flex-basis */
+    /* flex: 2 2 10%; */
+
+    /* Global values */
+    /* flex: inherit;
+    flex: initial;
+    flex: revert;
+    flex: revert-layer;
+    flex: unset; */
+
+main {
+        width: 80%;
+        margin: 0 auto;
+        border: 5px solid black;
+        height: 500px;
+        display: flex;
+}
+
+main .sidebar {
+    background-color: #6930c3;
+    /* border: 2px solid white; */
+    flex: 1 2 300px;
+}
+
+main .maincontent {
+    background-color: #80ffdb;
+    flex: 2 1 600px;
+}
+
