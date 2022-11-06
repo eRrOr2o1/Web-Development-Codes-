@@ -1,61 +1,55 @@
-const signUpbutton = document.getElementById('signUp');
-const signInbutton = document.getElementById('signIn');
-const container = document.getElementById('container');
-const emailMessage = document.querySelector('.empty-email-message');
-const errorEmail = document.querySelector('.invalid-email-message');
-const passwordMessage = document.querySelector('.empty-password-message');
-const errorPassword = document.querySelector('.invalid-password-message');
+document.addEventListener("DOMContentLoaded", function() {
+  const signUpbutton = document.getElementById('signUp');
+  const signInbutton = document.getElementById('signIn');
+  const container = document.getElementById('container');
 
-signUpbutton.addEventListener('click', ()=> container.classList.add('right-panel-active'));
 
-signInbutton.addEventListener('click', ()=> container.classList.remove('right-panel-active'));
+  signUpbutton.addEventListener('click', ()=> container.classList.add('right-panel-active'));
 
-form.addEventListener('submit', e => {
-    if(email.value){
-    const regexMatch = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value);
-    if (regexMatch) {
-          errorEmail.textContent = '';
+  signInbutton.addEventListener('click', ()=> container.classList.remove('right-panel-active'));
+
+  const email = document.getElementById('email');
+  const emailError = document.querySelector('#email + span.error');
+  email.addEventListener('input', function (event) {
+        // Each time the user types something, we check if the
+        // form fields are valid.
+
+        if (email.validity.valid) {
+          // In case there is an error message visible, if the field
+          // is valid, we remove the error message.
+          emailError.innerHTML = ''; // Reset the content of the message
+          emailError.className = 'error'; // Reset the visual state of the message
         } else {
-          e.preventDefault();
-          errorEmail.textContent = 'email is invalid';
-          emailMessage.textContent = "";
+          // If there is still an error, show the correct error
+          showError();
         }
-    } else {
-      e.preventDefault();
-      emailMessage.textContent = 'You must type in an email';
-      errorEmail.textContent = "";
+      });
+      form.addEventListener('submit', function (event) {
+      // if the form contains valid data, we let it submit
+
+      if(!email.validity.valid) {
+        // If it isn't, we display an appropriate error message
+        showError();
+        // Then we prevent the form from being sent by canceling the event
+        event.preventDefault();
+        }
+      });
+      function showError() {
+      if(email.validity.valueMissing) {
+        // If the field is empty
+        // display the following error message.
+        emailError.textContent = 'You need to enter an e-mail address.';
+      } else if(email.validity.typeMismatch) {
+        // If the field doesn't contain an email address
+        // display the following error message.
+        emailError.textContent = 'Entered value needs to be an e-mail address.';
+      } else if(email.validity.tooShort) {
+        // If the data is too short
+        // display the following error message.
+        emailError.textContent = `Email should be at least ${ email.minLength } characters; you entered ${ email.value.length }.`;
+      }
+
+      // Set the styling appropriately
+      emailError.className = 'error active';
     }
-    
-    if(password.value){
-      var p = document.getElementById('.pass').value;
-      if (p.length < 8) {
-        e.preventDefault();
-        passwordMessage.textContent = 'Your password must be at least 8 characters';
-        errorPassword.textContent = '';
-      }
-      if (p.search(/[a-z]/i) < 0) {
-        e.preventDefault();
-        errorPassword.textContent = 'Your password must contain at least one letter.';
-        passwordMessage.textContent = '';
-      }
-      if (p.search(/[0-9]/) < 0) {
-        e.preventDefault();
-        errorPassword.textContent = 'Your password must contain at least one digit.';
-        passwordMessage.textContent = '';
-      }
-    } 
-    else {
-      e.preventDefault();
-      passwordMessage.textContent = 'You must type a';
-      errorPassword.textContent = "";
-    } 
-          
-      
-     
-
 });
-
-// function seterror(id, error) {
-//     //sets error inside tag of id
-// }
-

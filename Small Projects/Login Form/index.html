@@ -23,17 +23,11 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" id="name" />
-			<b><span></span></b>
-			<input type="email" placeholder="Email" id="email"/>
-			<span class="empty-email-message"></span>
-			<span class="invalid-email-message"></span>
-			<input type="password" placeholder="Password" class="pass"/>
-			<span class="empty-password-message"></span>
-			<span class="invalid-password-message"></span>
-            <input type="password" placeholder="Confirm Password" class="pass"/>
-			<span class="empty-password-message"></span>
-			<span class="invalid-password-message"></span>
+			<input type="text" placeholder="Name" id="name" required autocomplete="off"/>
+			<input type="email" placeholder="Email" id="email" name="email" required autocomplete="off" minlength="8"/>
+      <span class="error"></span>
+			<input type="password" placeholder="Password" class="pass" required autocomplete="off"/>
+			<input type="password" placeholder="Confirm Password" class="pass" required autocomplete="off"/>
 			<button>Sign Up</button>
 		</form>
 	</div>
